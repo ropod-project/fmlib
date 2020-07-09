@@ -184,7 +184,10 @@ class Task(MongoModel):
         except DoesNotExist:
             task_status = TaskStatus(task=self.task_id, status=status)
         task_status.save()
-        if status in [TaskStatusConst.COMPLETED, TaskStatusConst.CANCELED, TaskStatusConst.ABORTED]:
+        if status in [TaskStatusConst.COMPLETED,
+                      TaskStatusConst.CANCELED,
+                      TaskStatusConst.ABORTED,
+                      TaskStatusConst.PREEMPTED]:
             task_status.archive()
             self.archive()
 
