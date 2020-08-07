@@ -56,8 +56,36 @@ class Action(MongoModel, EmbeddedMongoModel):
 
 
 class GoTo(Action):
-
     locations = fields.ListField()
+
+
+class EnterElevator(Action):
+    elevator_id = fields.IntegerField()
+
+
+class ExitElevator(Action):
+    pass
+
+
+class WaitForElevator(Action):
+    pass
+
+
+class RequestElevator(Action):
+    start_floor = fields.IntegerField()
+    goal_floor = fields.IntegerField()
+
+
+class RideElevator(Action):
+    level = fields.IntegerField()
+
+
+class Dock(Action):
+    pass
+
+
+class Undock(Action):
+    pass
 
 
 class ActionProgress(EmbeddedMongoModel):
