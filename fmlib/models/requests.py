@@ -25,7 +25,9 @@ class TaskRequest(Request):
 class TransportationRequest(TaskRequest):
 
     pickup_location = fields.CharField()
+    pickup_location_level = fields.IntegerField()
     delivery_location = fields.CharField()
+    delivery_location_level = fields.IntegerField()
     earliest_pickup_time = fields.DateTimeField()
     latest_pickup_time = fields.DateTimeField()
     load_type = fields.CharField()
